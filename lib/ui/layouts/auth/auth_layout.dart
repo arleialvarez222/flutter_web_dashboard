@@ -21,7 +21,7 @@ class AuthLayout extends StatelessWidget {
       body: Scrollbar(
         
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: [
       
             ( size.width > 1000 )
@@ -57,13 +57,13 @@ class _MobileBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
 
           CustomTitle(),
 
           Container(
             width: double.infinity,
-            height: 420,
+            height: 470,
             child: child,
           ),
 
@@ -98,12 +98,12 @@ class _DestopBody extends StatelessWidget {
     return Container(
 
       width: size.width,
-      height: size.height * 0.9,
-      //color: Colors.red,
+      height: size.height * 0.96,
+      color: Colors.black,
       child: Row(
         children: [
 
-          BackgroundTwitter(),
+          Expanded(child: BackgroundTwitter()),
 
           Container(
             width: 600,
@@ -112,11 +112,11 @@ class _DestopBody extends StatelessWidget {
             child: Column(
               children: [
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 CustomTitle(),
 
-                SizedBox(height: 30,),
+                //SizedBox(height: 30,),
 
                 Expanded(
                   child: child,

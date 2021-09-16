@@ -6,7 +6,7 @@ class CustomTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -16,7 +16,7 @@ class CustomTitle extends StatelessWidget {
             height: 50,
           ),
 
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
 
           FittedBox(
             fit: BoxFit.contain,

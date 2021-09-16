@@ -10,23 +10,23 @@ class LinksBar extends StatelessWidget {
 
     return Container(
       color: Colors.black,
-      height: (size.width > 1000) ? size.height * 0.1 : null,
+      height: (size.width > 1000) ? size.height * 0.04 : null,
       child: Wrap(
         alignment: WrapAlignment.center,
         children:  [
 
-          LinkText( text: 'About', onPressed: () => print('about')),
-          LinkText( text: 'Help center'),
-          LinkText( text: 'Terms of Service'),
-          LinkText( text: 'Privacy policy'),
-          LinkText( text: 'Cookie policy'),
-          LinkText( text: 'Adds info'),
-          LinkText( text: 'Blog'),
-          LinkText( text: 'Status'),
-          LinkText( text: 'Careers'),
-          LinkText( text: 'Brand Resources'),
-          LinkText( text: 'Advertising'),
-          LinkText( text: 'Marketing'),
+          LinkText( text: 'About', onPressed: () {}),
+          LinkText( text: 'Help center', onPressed: () {}),
+          LinkText( text: 'Terms of Service', onPressed: () {}),
+          LinkText( text: 'Privacy policy', onPressed: () {}),
+          LinkText( text: 'Cookie policy', onPressed: () {}),
+          LinkText( text: 'Adds info', onPressed: () {}),
+          LinkText( text: 'Blog', onPressed: () {}),
+          LinkText( text: 'Status', onPressed: () {}),
+          LinkText( text: 'Careers', onPressed: () {}),
+          LinkText( text: 'Brand Resources', onPressed: () {}),
+          LinkText( text: 'Advertising', onPressed: () {}),
+          LinkText( text: 'Marketing', onPressed: () {}),
 
         ],
       ),
