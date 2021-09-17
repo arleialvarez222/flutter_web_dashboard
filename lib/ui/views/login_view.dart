@@ -36,6 +36,7 @@ class LoginView extends StatelessWidget {
                   children: [
       
                     TextFormField(
+                      onFieldSubmitted: ( _ ) => onFormSubmit(loginFormProvider, authProvider), 
                       onChanged: (value) => {
                         loginFormProvider.email = value
                       },
@@ -54,6 +55,7 @@ class LoginView extends StatelessWidget {
                     const SizedBox(height: 20,),
       
                     TextFormField(
+                      onFieldSubmitted: ( _ ) => onFormSubmit(loginFormProvider, authProvider), 
                       onChanged: (value) => {
                         loginFormProvider.password = value
                       },
@@ -74,12 +76,7 @@ class LoginView extends StatelessWidget {
                     const SizedBox(height: 20,),
       
                     CustomOutlinedButton(
-                      onPressed: () {
-                        final isValid = loginFormProvider.validateForm();
-                        if(isValid) {
-                          authProvider.login(loginFormProvider.email, loginFormProvider.password);
-                        }
-                      }, 
+                      onPressed: () => onFormSubmit(loginFormProvider, authProvider), 
                       text:'Ingresar',
                       color: Colors.white,
                     ),
@@ -102,6 +99,18 @@ class LoginView extends StatelessWidget {
       },)
     );
 
+  }
+
+  void onFormSubmit(LoginFormProvider loginFormProvider,AuthProvider authProvider){
+    final isValid = loginFormProvider.validateForm();
+    if(!isValid) return;
+
+    //final authProvider = Provider.of<AuthProvider>(context, listen: false);
+
+    authProvider.login(
+      loginFormProvider.email, 
+      loginFormProvider.password
+    );
   }
 
 }
