@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:admin_dashboard/providers/sidemenu_provider.dart';
@@ -55,9 +56,10 @@ class Sidebar extends StatelessWidget {
           ),
 
           MenuItem(
+            isActive: sideMenuProvider.currentPage == Flurorouter.categoriaRoute,
             text: 'Categories', 
             icon: Icons.layers_outlined, 
-            onPressed: () {}
+            onPressed: () => navigateTo(Flurorouter.categoriaRoute),
           ),
 
           MenuItem(
