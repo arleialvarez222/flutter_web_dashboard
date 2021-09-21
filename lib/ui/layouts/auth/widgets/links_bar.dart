@@ -2,6 +2,8 @@ import 'package:admin_dashboard/ui/bottons/link_text.dart';
 import 'package:flutter/material.dart';
 
 class LinksBar extends StatelessWidget {
+  const LinksBar({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

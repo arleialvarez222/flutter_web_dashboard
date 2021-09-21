@@ -23,10 +23,12 @@ void main() async {
   await LocalStorage.configurePrefs();
   CafeApi.configureDio(); //configuracion a base de datos cafeapi
   Flurorouter.configureRoutes();
-  runApp(AppState());
+  runApp( const AppState());
 }
 
 class AppState extends StatelessWidget {
+  const AppState({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +45,14 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(create: ( _ ) => UserFormProvider()),
         
       ],
-      child: MyApp(),
+      child: const MyApp(),
     );
   }
 }
  
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -64,7 +68,7 @@ class MyApp extends StatelessWidget {
 
         if(authProvider.authStatus == AuthStatus.checking){
           //return Center(child: Text('Checking'),);
-          return SplashLayoud();
+          return const SplashLayoud();
         }
 
         if(authProvider.authStatus == AuthStatus.authenticated){

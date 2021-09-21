@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 class CafeApi {
 
-  static Dio _dio = Dio();
+  static final Dio _dio = Dio();
 
   static void configureDio(){
 
@@ -26,9 +26,10 @@ class CafeApi {
 
       return resp.data;
 
-    } catch (e) {
+    } on DioError catch (e) {
 
-      //print(e);
+      // ignore: avoid_print
+      print(e.response);
       throw('Error en el get');
       
     }
@@ -44,9 +45,10 @@ class CafeApi {
 
       return resp.data;
 
-    } catch (e) {
+    } on DioError catch (e) {
 
-      //print(e);
+      // ignore: avoid_print
+      print(e.response);
       throw('Error en el post');
 
     }
@@ -62,9 +64,10 @@ class CafeApi {
 
       return resp.data;
 
-    } catch (e) {
+    } on DioError catch (e) {
 
-      //print(e);
+      // ignore: avoid_print
+      print(e.response);
       throw('Error en el put');
 
     }
@@ -80,9 +83,10 @@ class CafeApi {
 
       return resp.data;
 
-    } catch (e) {
+    } on DioError catch (e) {
 
-      //print(e);
+      // ignore: avoid_print
+      print(e.response);
       throw('Error en el delete');
 
     }

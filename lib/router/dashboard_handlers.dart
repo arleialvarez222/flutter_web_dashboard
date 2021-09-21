@@ -22,9 +22,9 @@ class DashboardHandlers {
         .setCurrentPageUrl(Flurorouter.dashboardRoute);
 
       if(authProvider.authStatus == AuthStatus.authenticated){
-        return DashboardView();
+        return const DashboardView();
       }else{
-        return LoginView();
+        return const LoginView();
       }
     }  
   );
@@ -37,9 +37,9 @@ class DashboardHandlers {
         .setCurrentPageUrl(Flurorouter.iconsRoute);
 
       if(authProvider.authStatus == AuthStatus.authenticated){
-        return IconsView();
+        return const IconsView();
       }else{
-        return LoginView();
+        return const LoginView();
       }
     }  
   );
@@ -52,9 +52,9 @@ class DashboardHandlers {
         .setCurrentPageUrl(Flurorouter.blankRoute);
 
       if(authProvider.authStatus == AuthStatus.authenticated){
-        return BlankView();
+        return const BlankView();
       }else{
-        return LoginView();
+        return const LoginView();
       }
     }  
   );
@@ -67,9 +67,9 @@ class DashboardHandlers {
         .setCurrentPageUrl(Flurorouter.categoriaRoute);
 
       if(authProvider.authStatus == AuthStatus.authenticated){
-        return CategoryView();
+        return const CategoryView();
       }else{
-        return LoginView();
+        return const LoginView();
       }
     }  
   );
@@ -82,9 +82,9 @@ class DashboardHandlers {
         .setCurrentPageUrl(Flurorouter.userRoute);
 
       if(authProvider.authStatus == AuthStatus.authenticated){
-        return UsersView();
+        return const UsersView();
       }else{
-        return LoginView();
+        return const LoginView();
       }
     }  
   );
@@ -101,11 +101,11 @@ class DashboardHandlers {
         if(params['uid']?.first != null){
           return UseridView(uid: params['uid']!.first);
         }else{
-          return UsersView();
+          return const UsersView();
         }
 
       }else{
-        return LoginView();
+        return const LoginView();
       }
     }  
   );

@@ -14,9 +14,9 @@ class AdminHandlers {
       final authProvider = Provider.of<AuthProvider>(context!);
 
       if(authProvider.authStatus == AuthStatus.notAuthenticated){
-        return LoginView();
+        return const LoginView();
       }else{
-        return DashboardView();
+        return const DashboardView();
       }
     }  
   );
@@ -27,9 +27,9 @@ class AdminHandlers {
       final authProvider = Provider.of<AuthProvider>(context!);
 
       if(authProvider.authStatus == AuthStatus.notAuthenticated){
-        return RegisterView();
+        return const RegisterView();
       }else{
-        return DashboardView();
+        return const DashboardView();
       }
       
     }  

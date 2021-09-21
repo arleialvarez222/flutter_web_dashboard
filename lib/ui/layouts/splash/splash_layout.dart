@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SplashLayoud extends StatelessWidget {
+  const SplashLayoud({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

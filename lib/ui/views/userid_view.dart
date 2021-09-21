@@ -1,6 +1,8 @@
 import 'package:admin_dashboard/models/usuario.dart';
 import 'package:admin_dashboard/providers/user_form_provider.dart';
 import 'package:admin_dashboard/providers/users_provider.dart';
+import 'package:admin_dashboard/services/navigation_service.dart';
+import 'package:admin_dashboard/services/notification_service.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,11 +37,25 @@ class _UseridViewState extends State<UseridView> {
 
     usersProvider .getUserById(widget.uid)
       .then((userDB) {
-        userFormProvider.user = userDB;
-        setState(() {user = userDB;});
+        if(userDB != null){
+          userFormProvider.user = userDB;
+          //limpiar el provider despues de salir o ingresar un id no valid
+          userFormProvider.formkey = GlobalKey<FormState>();
+          setState(() {user = userDB;});
+        }else{
+          NavigationService.replaceTo('/dashboard/users');
+        }
 
       });
 
+  }
+
+  @override
+  void dispose() {
+
+    user = null;
+    Provider.of<UserFormProvider>(context, listen: false).user = null;
+    super.dispose();
   }
 
   @override
@@ -78,21 +94,19 @@ class _UserViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Container(
-      child: Table(
-        columnWidths: const {0:FixedColumnWidth(250)},
-        children: const [
-          TableRow(
-            children: [
+    return Table(
+      columnWidths: const {0:FixedColumnWidth(250)},
+      children: const [
+        TableRow(
+          children: [
 
-              _AvatarContainer(),
+            _AvatarContainer(),
 
-              _UserViewForm(),
+            _UserViewForm(),
 
-            ]
-          )
-        ],
-      ),
+          ]
+        )
+      ],
     );
   }
 }
@@ -151,8 +165,14 @@ class _UserViewForm extends StatelessWidget {
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 120),
               child: ElevatedButton(
-                onPressed: () {
-                  print(userFormProvider.updateUsers());
+                onPressed: () async{
+                  final saved = await userFormProvider.updateUsers();
+                  if(saved){
+                    NotificationService.showSnacbar('Usuario actualizado');
+                    Provider.of<UsersProvider>(context, listen: false).refresUsers(user);
+                  }else{
+                    NotificationService.showSnacbarError('No se actualizo');
+                  }
                 }, 
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.indigo),

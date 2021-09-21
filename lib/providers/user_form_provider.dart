@@ -1,10 +1,11 @@
 import 'package:admin_dashboard/models/usuario.dart';
+import 'package:admin_dashboard/ui/api/cafe_api.dart';
 import 'package:flutter/material.dart';
 
 class UserFormProvider extends ChangeNotifier {
 
   Usuario? user;
-  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  late GlobalKey<FormState> formkey;
 
   /* void updateListener(){
     notifyListeners();
@@ -31,15 +32,28 @@ class UserFormProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool validaForm(){
+  bool _validaForm(){
     return formkey.currentState!.validate();
   }
 
-  updateUsers(){
-    if(!validaForm()) return;
+  updateUsers() async {
+    if(!_validaForm()) return false;
 
-    print('Informacion correcta');
-    print(user!.nombre);
-    print(user!.correo);
+    final data = {
+      'nombre': user!.nombre,
+      'correo': user!.correo,
+    };
+
+    try {
+      await CafeApi.put('/usuarios/${user!.uid}', data);
+      //print(resp);
+      return true;
+      
+    } catch (e) {
+      //print('error: $e');
+      throw('Error en el put $e');
+      //return false;
+    }
+
   }
 }

@@ -5,6 +5,8 @@ import 'package:admin_dashboard/ui/labels/custom_label.dart';
 import 'package:provider/provider.dart';
 
 class UsersView extends StatelessWidget {
+  const UsersView({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class UsersView extends StatelessWidget {
             ], 
             source: useraDataSource,
             onPageChanged: (page){
-              print(': $page');
+              //print(': $page');
             },
           ),
         ],

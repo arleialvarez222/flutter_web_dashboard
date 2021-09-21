@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:admin_dashboard/ui/labels/custom_label.dart';
 
 class BlankView extends StatelessWidget {
+  const BlankView({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

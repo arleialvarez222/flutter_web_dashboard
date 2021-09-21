@@ -7,6 +7,8 @@ import 'package:admin_dashboard/ui/labels/custom_label.dart';
 import 'package:provider/provider.dart';
 
 class CategoryView extends StatefulWidget {
+  const CategoryView({Key? key}) : super(key: key);
+
 
   @override
   State<CategoryView> createState() => _CategoryViewState();
@@ -59,7 +61,7 @@ class _CategoryViewState extends State<CategoryView> {
                   showModalBottomSheet(
                     backgroundColor: Colors.transparent,
                     context: context, 
-                    builder: ( _ ) => CategoryModal(categoria: null,)
+                    builder: ( _ ) => const CategoryModal(categoria: null,)
                   );
                 }, 
                 text: 'Crear', 

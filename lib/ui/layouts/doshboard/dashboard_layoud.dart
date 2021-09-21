@@ -39,13 +39,13 @@ class _DashboardLayoudState extends State<DashboardLayoud> with SingleTickerProv
             children: [
               
               if(size.width >= 700)
-                Sidebar(),
+                const Sidebar(),
 
               Expanded(
                 child: Column(
                   children: [
 
-                    Navbar(),
+                    const Navbar(),
 
                     Expanded( 
                       child: Container(
@@ -81,7 +81,7 @@ class _DashboardLayoudState extends State<DashboardLayoud> with SingleTickerProv
 
                   Transform.translate(
                     offset: Offset(SideMenuProvider.movent.value, 0),
-                    child: Sidebar(),
+                    child: const Sidebar(),
                   ),
                 ],
               ),

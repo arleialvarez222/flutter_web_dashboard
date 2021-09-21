@@ -18,7 +18,7 @@ class AuthProvider extends ChangeNotifier {
 
   //GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  String? _token;
+  //String? _token;
   AuthStatus authStatus = AuthStatus.checking;
   Usuario? user;
 
@@ -35,8 +35,6 @@ class AuthProvider extends ChangeNotifier {
 
     CafeApi.post('/auth/login', data).then((json) {
 
-      print(json);
-
       final authResponse = AuthResponse.fromMap(json);
       user = authResponse.usuario;
 
@@ -49,7 +47,7 @@ class AuthProvider extends ChangeNotifier {
       notifyListeners();
 
     }).catchError((e){
-      print('Error en: $e');
+      //print('Error en: $e');
 
       NotificationService.showSnacbarError('Usuario / password no validos');
     });
@@ -64,7 +62,7 @@ class AuthProvider extends ChangeNotifier {
     };
 
     CafeApi.post('/usuarios', data).then((json) {
-      print(json);
+      //print(json);
 
       final authResponse = AuthResponse.fromMap(json);
       user = authResponse.usuario;
@@ -78,7 +76,7 @@ class AuthProvider extends ChangeNotifier {
       notifyListeners();
 
     } ).catchError( (e){
-      print('error en : $e');
+      //print('error en : $e');
 
       NotificationService.showSnacbarError('Usuario / password no validos');
     });
@@ -107,7 +105,6 @@ class AuthProvider extends ChangeNotifier {
       return true;
       
     } catch (e) {
-      print('Error en: $e');
       authStatus = AuthStatus.notAuthenticated;
       notifyListeners();
       return false;

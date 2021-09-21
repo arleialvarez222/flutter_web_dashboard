@@ -5,6 +5,8 @@ import 'package:admin_dashboard/ui/labels/custom_label.dart';
 import 'package:provider/provider.dart';
 
 class DashboardView extends StatelessWidget {
+  const DashboardView({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

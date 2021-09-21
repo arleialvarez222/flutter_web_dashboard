@@ -1,5 +1,4 @@
 import 'package:admin_dashboard/providers/auth_provider.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:admin_dashboard/providers/sidemenu_provider.dart';
@@ -10,6 +9,8 @@ import 'package:admin_dashboard/ui/shared/widgets/menu_item.dart';
 import 'package:admin_dashboard/ui/shared/widgets/text_separator.dart';
 
 class Sidebar extends StatelessWidget {
+  const Sidebar({Key? key}) : super(key: key);
+
 
   void navigateTo( String routeName){
     NavigationService.replaceTo(routeName);
@@ -29,7 +30,7 @@ class Sidebar extends StatelessWidget {
         physics: const ClampingScrollPhysics(),
         children: [
 
-          Logo(),
+          const Logo(),
 
           const SizedBox(height: 50,),
 

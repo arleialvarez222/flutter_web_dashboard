@@ -5,6 +5,8 @@ import 'package:admin_dashboard/ui/shared/widgets/search_text.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
+  const Navbar({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +33,17 @@ class Navbar extends StatelessWidget {
           if(size.width > 400)
             ConstrainedBox(
               constraints: const BoxConstraints( maxWidth: 250),
-              child: SearchText(),
+              child: const SearchText(),
 
             ),
 
           const Spacer(),
 
-          NotificationIndicator(),
+          const NotificationIndicator(),
 
           const SizedBox(width: 10,),
 
-          NavbarAvatar(),
+          const NavbarAvatar(),
 
           const SizedBox(width: 10,)
 
@@ -50,7 +52,7 @@ class Navbar extends StatelessWidget {
     );
   }
 
-  BoxDecoration buildBoxDecoration() => BoxDecoration(
+  BoxDecoration buildBoxDecoration() => const BoxDecoration(
     color: Colors.white,
    // boxShadow: const BoxShadow(color: Colors.black12, blurRadius: 5)
   );

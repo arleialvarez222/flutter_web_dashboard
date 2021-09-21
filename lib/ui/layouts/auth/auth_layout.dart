@@ -28,7 +28,7 @@ class AuthLayout extends StatelessWidget {
               ? _DestopBody(child: child)
               :  _MobileBody(child: child),
            
-            LinksBar(),
+            const LinksBar(),
       
       
             
@@ -59,15 +59,15 @@ class _MobileBody extends StatelessWidget {
 
           const SizedBox(height: 20,),
 
-          CustomTitle(),
+          const CustomTitle(),
 
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 470,
             child: child,
           ),
 
-          Container(
+          const SizedBox(
             width: double.infinity,
             height: 420,
             child: BackgroundTwitter(),
@@ -103,7 +103,7 @@ class _DestopBody extends StatelessWidget {
       child: Row(
         children: [
 
-          Expanded(child: BackgroundTwitter()),
+          const Expanded(child: BackgroundTwitter()),
 
           Container(
             width: 600,
@@ -114,7 +114,7 @@ class _DestopBody extends StatelessWidget {
 
                 const SizedBox(height: 20,),
 
-                CustomTitle(),
+                const CustomTitle(),
 
                 //SizedBox(height: 30,),
 
