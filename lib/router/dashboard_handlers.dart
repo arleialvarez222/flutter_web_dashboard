@@ -7,6 +7,8 @@ import 'package:admin_dashboard/ui/views/category_view.dart';
 import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/ui/views/icons_view.dart';
 import 'package:admin_dashboard/ui/views/login_view.dart';
+import 'package:admin_dashboard/ui/views/user_view.dart';
+import 'package:admin_dashboard/ui/views/userid_view.dart';
 import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 
@@ -66,6 +68,42 @@ class DashboardHandlers {
 
       if(authProvider.authStatus == AuthStatus.authenticated){
         return CategoryView();
+      }else{
+        return LoginView();
+      }
+    }  
+  );
+
+  static Handler users = Handler(
+    handlerFunc: (context, params){
+
+      final authProvider = Provider.of<AuthProvider>(context!);
+      Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.userRoute);
+
+      if(authProvider.authStatus == AuthStatus.authenticated){
+        return UsersView();
+      }else{
+        return LoginView();
+      }
+    }  
+  );
+
+  static Handler userid = Handler(
+    handlerFunc: (context, params){
+
+      final authProvider = Provider.of<AuthProvider>(context!);
+      Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.useridRoute);
+
+      if(authProvider.authStatus == AuthStatus.authenticated){
+
+        if(params['uid']?.first != null){
+          return UseridView(uid: params['uid']!.first);
+        }else{
+          return UsersView();
+        }
+
       }else{
         return LoginView();
       }

@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/models/http/auth_response.dart';
+import 'package:admin_dashboard/models/usuario.dart';
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
@@ -17,7 +18,7 @@ class AuthProvider extends ChangeNotifier {
 
   //GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  //String? _token;
+  String? _token;
   AuthStatus authStatus = AuthStatus.checking;
   Usuario? user;
 

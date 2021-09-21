@@ -30,7 +30,7 @@ class LoginView extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 370),
               child: Form(
                 //autovalidateMode => valida que campo son obigatorios pero al empezar a escribir en el form
-                autovalidateMode: AutovalidateMode.always,
+                //autovalidateMode: AutovalidateMode.always,
                 key: loginFormProvider.formKey,
                 child: Column(
                   children: [
@@ -86,7 +86,7 @@ class LoginView extends StatelessWidget {
                     LinkText(
                       text: 'Nueva cuenta',
                       onPressed: (){
-                        Navigator.pushNamed(context, Flurorouter.registerRoute);
+                        Navigator.pushReplacementNamed(context, Flurorouter.registerRoute);
                       },
                     ),
       
